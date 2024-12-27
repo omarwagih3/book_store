@@ -138,25 +138,35 @@
                   
                 </thead>
                 
-                <tbody>
+                <tbody id="ordered_books_table">
+                  <!-- <div class="example_table">
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>Jacob</td>
+                      <td>Thornton</td>
+                      
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td colspan="1">Larry the Bird</td>
+                      <td>@twitter</td>
+                      
+                    </tr>
+                  </div> -->
+                  {% for ordered_book in ordered_books %}
                   <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    
+                      <td>{{ ordered_book[0] }}</td>
+                      <td>{{ ordered_book[1] }}</td>
+                      <td>{{ ordered_book[2] }}</td>
+                      <td>{{ ordered_book[3] }}</td>
                   </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td colspan="1">Larry the Bird</td>
-                    <td>@twitter</td>
-                    
-                  </tr>
+                  {% endfor %}
                 </tbody>
               </table>
             </div>

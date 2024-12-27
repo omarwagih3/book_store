@@ -140,7 +140,7 @@
               <table class="table table-responsive table-bordered table-hover table-dark">
                 <thead>
                   <tr>
-                    <th scope="col">Order</th>
+                    <!-- <th scope="col">Order</th> -->
                     <th scope="col">Order-ID</th>
                     <th scope="col">Date</th>
                     <th scope="col">Total Amount</th>
@@ -150,31 +150,41 @@
                   
                 </thead>
                 
-                <tbody>
+                <tbody id="orders_table">
+                  <!-- <div class="examle_table">
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                      <td>@mdo</td>
+                      
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>Jacob</td>
+                      <td>Thornton</td>
+                      <td>@fat</td>
+                      <td>@fat</td>
+                      
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td colspan="1">Larry the Bird</td>
+                      <td>@twitter</td>
+                      <td>@twitter</td>
+                      <td>@twitter</td>
+                      
+                    </tr>
+                  </div> -->
+                  {% for order in orders %}
                   <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                    
+                      <td>{{ order[0] }}</td>
+                      <td>{{ order[1] }}</td>
+                      <td>{{ order[2] }}</td>
+                      <td>{{ order[3] }}</td>
                   </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td>@fat</td>
-                    
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td colspan="1">Larry the Bird</td>
-                    <td>@twitter</td>
-                    <td>@twitter</td>
-                    <td>@twitter</td>
-                    
-                  </tr>
+                  {% endfor %}
                 </tbody>
               </table>
             </div>

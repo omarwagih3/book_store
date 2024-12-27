@@ -134,35 +134,44 @@
               <table class="table table-responsive table-bordered table-hover table-dark">
                 <thead>
                   <tr>
-                    <th scope="col">Author</th>
+                    <!-- <th scope="col">Author</th> -->
                     <th scope="col">Author ID</th>
                     <th scope="col">Name</th>
                     <th scope="col">Biography</th>
                     
                   </tr>
                 </thead>
-                <tbody>
+                <tbody id="authors_table">
+                  <!-- <div class="eample_table">
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                      
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>Jacob</td>
+                      <td>Thornton</td>
+                      <td>@fat</td>
+                      
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td colspan="1">Larry the Bird</td>
+                      <td>@twitter</td>
+                      <td>@twitter</td>
+                      
+                    </tr>
+                  </div> -->
+                  {% for author in authors %}
                   <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    
+                      <td>{{ author[0] }}</td>
+                      <td>{{ author[1] }}</td>
+                      <td>{{ author[2] }}</td>
                   </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td colspan="1">Larry the Bird</td>
-                    <td>@twitter</td>
-                    <td>@twitter</td>
-                    
-                  </tr>
+                  {% endfor %}
                 </tbody>
               </table>
             </div>
