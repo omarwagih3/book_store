@@ -45,19 +45,19 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <form action="add_order" method="post">
+                <form id="ordered_books_add_form" action="/add_order" method="post">
                   <div class="mb-3">
                     <label for="selc-table">Entries</label>
                   </div>
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Qnt</span>
-                    <input type="number" id="quantity" class="form-control me-2" placeholder="Quantity" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="number" id="quantity" name="Quantity" class="form-control me-2" placeholder="Quantity" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
+                  <button type="submit" class="btn btn-primary" form="ordered_books_add_form">ADD</button>
                 </form>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">ADD</button>
               </div>
             </div>
           </div>
@@ -71,19 +71,19 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <form action="delete_order" method="post">
+                <form id="delete_form" action="/delete_order" method="post">
                   <div class="mb-3">
                     <label for="selc-table">Record To Be Deleted</label>
                   </div>
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">ID</span>
-                    <input type="text" id="order_id" class="form-control me-2" placeholder="Order ID" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" id="order_id" name="Order ID" class="form-control me-2" placeholder="Order ID" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
+                  <button type="submit" class="btn btn-primary" form="delete_form">DELETE</button>
                 </form>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">DELETE</button>
               </div>
             </div>
           </div>
@@ -97,19 +97,19 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <form action="search_order" method="get">
+                <form id="search_form" action="/search_order" method="get">
                   <div class="mb-3">
                     <label for="selc-table">Search By ID</label>
                   </div>
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">ID</span>
-                    <input type="text" id="order_id" class="form-control me-2" placeholder="Order ID" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" id="order_id" name="Order ID" class="form-control me-2" placeholder="Order ID" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
+                  <button type="submit" class="btn btn-primary" form="search_form">Search</button>
                 </form>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Search</button>
               </div>
             </div>
           </div>

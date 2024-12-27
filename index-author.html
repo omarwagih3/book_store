@@ -45,23 +45,23 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <form action="add_author" method="post">
+                <form id="author_add_form" action="/add_author" method="post">
                   <div class="mb-3">
                     <label for="selc-table">Entries</label>
                   </div>
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Name</span>
-                    <input type="text" id="author_name" class="form-control me-2" placeholder="Author Name" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" id="author_name" name="Author Name" class="form-control me-2" placeholder="Author Name" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">BIO</span>
-                    <input type="text" id="biography" class="form-control me-2" placeholder="Biography" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" id="biography" name="Biography" class="form-control me-2" placeholder="Biography" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
+                  <button type="submit" class="btn btn-primary" form="author_add_form">ADD</button>
                 </form>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">ADD</button>
               </div>
             </div>
           </div>
@@ -75,19 +75,19 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <form action="delete_author" method="post">
+                <form id="delete_form" action="/delete_author" method="post">
                   <div class="mb-3">
                     <label for="selc-table">Record To Be Deleted</label>
                   </div>
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">ID</span>
-                    <input type="text" id="author_id" class="form-control me-2" placeholder="Author ID" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" id="author_id" name="Author ID" class="form-control me-2" placeholder="Author ID" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
+                  <button type="submit" class="btn btn-primary" form="delete_form">DELETE</button>
                 </form>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">DELETE</button>
               </div>
             </div>
           </div>
@@ -101,19 +101,19 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <form action="search_author" method="get">
+                <form id="search_form" action="/search_author" method="get">
                   <div class="mb-3">
                     <label for="selc-table">Search By Name</label>
                   </div>
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Name</span>
-                    <input type="text" id="author_name" class="form-control me-2" placeholder="Author Name" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" id="author_name"  name="Author Name" class="form-control me-2" placeholder="Author Name" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
+                  <button type="submit" class="btn btn-primary" form="search_form">Search</button>
                 </form>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Search</button>
               </div>
             </div>
           </div>

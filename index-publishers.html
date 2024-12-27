@@ -47,23 +47,23 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <form action="add_publisher" method="post">
+                <form id="publisher_add_form" action="/add_publisher" method="post">
                   <div class="mb-3">
                     <label for="selc-table">Entries</label>
                   </div>
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Name</span>
-                    <input type="text" id="publisher_name" class="form-control me-2" placeholder="Publisher Name" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" id="publisher_name" name="Publisher Name" class="form-control me-2" placeholder="Publisher Name" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Cont</span>
-                    <input type="text" id="contact" class="form-control me-2" placeholder="Contact" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" id="contact" name="Contact" class="form-control me-2" placeholder="Contact" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
+                  <button type="submit" class="btn btn-primary" form="publisher_add_form">ADD</button>
                 </form>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">ADD</button>
               </div>
             </div>
           </div>
@@ -77,19 +77,19 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <form action="delete_publisher" method="post">
+                <form id="delete_form" action="/delete_publisher" method="post">
                   <div class="mb-3">
                     <label for="selc-table">Record To Be Deleted</label>
                   </div>
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">PID</span>
-                    <input type="text" id="publisher_id" class="form-control me-2" placeholder="Publisher ID" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" id="publisher_id" name="Publisher ID" class="form-control me-2" placeholder="Publisher ID" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
+                  <button type="submit" class="btn btn-primary" form="delete_form">DELETE</button>
                 </form>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">DELETE</button>
               </div>
             </div>
           </div>
@@ -103,19 +103,19 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <form action="search_publisher" method="post">
+                <form id="search_form" action="/search_publisher" method="post">
                   <div class="mb-3">
                     <label for="selc-table">Search By Name</label>
                   </div>
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Name</span>
-                    <input type="text" id="publisher_name" class="form-control me-2" placeholder="Publisher Name" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" id="publisher_name" name="Publisher Name" class="form-control me-2" placeholder="Publisher Name" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
+                  <button type="submit" class="btn btn-primary" form="search_form">Search</button>
                 </form>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Search</button>
               </div>
             </div>
           </div>
