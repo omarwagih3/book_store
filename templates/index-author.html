@@ -54,11 +54,11 @@
                   </div>
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Name</span>
-                    <input type="text" id="author_name" name="Author Name" class="form-control me-2" placeholder="Author Name" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" id="author_name" name="author_name" class="form-control me-2" placeholder="Author Name" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">BIO</span>
-                    <input type="text" id="biography" name="Biography" class="form-control me-2" placeholder="Biography" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" id="biography" name="biography" class="form-control me-2" placeholder="Biography" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
                   <button type="submit" class="btn btn-primary" form="author_add_form">ADD</button>
                 </form>
@@ -132,6 +132,7 @@
               Authors
             </button>
           </h2>
+          
           <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
             <div class="accordion-body">
               <table class="table table-responsive table-bordered table-hover table-dark">
@@ -184,7 +185,8 @@
       </div>
     </div>
 
-    <script src="./js/bootstrap.bundle.min.js"></script>
-    <script src="./js/main.js"></script>
+    <!-- <script src="../static/js/bootstrap.bundle.min.js"></script> -->
+    <script src="{{ url_for('static', filename='../static/js/bootstrap.bundle.min.js') }}"></script>
+    <!-- <script src="./js/main.js"></script> -->
   </body>
 </html>

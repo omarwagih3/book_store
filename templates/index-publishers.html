@@ -56,11 +56,11 @@
                   </div>
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Name</span>
-                    <input type="text" id="publisher_name" name="Publisher Name" class="form-control me-2" placeholder="Publisher Name" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" id="publisher_name" name="publishers_name" class="form-control me-2" placeholder="Publisher Name" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Cont</span>
-                    <input type="text" id="contact" name="Contact" class="form-control me-2" placeholder="Contact" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" id="contact" name="publishers_email" class="form-control me-2" placeholder="Contact" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
                   <button type="submit" class="btn btn-primary" form="publisher_add_form">ADD</button>
                 </form>
@@ -185,7 +185,8 @@
       </div>
     </div>
 
-    <script src="./js/bootstrap.bundle.min.js"></script>
-    <script src="./js/main.js"></script>
+    <!-- <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script> -->
+    <script src="{{ url_for('static', filename='../static/js/bootstrap.bundle.min.js') }}"></script>
   </body>
 </html>

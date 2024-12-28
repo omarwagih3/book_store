@@ -55,21 +55,21 @@
                   </div>
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Title</span>
-                    <input type="text" id="book_title" name="title" class="form-control" placeholder="Enter Book Title" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" id="book_title" name="book_title" class="form-control" placeholder="Enter Book Title" aria-label="Username" aria-describedby="basic-addon1">
                     <span class="input-group-text" id="basic-addon1">Genre</span>
-                    <input type="text" id="book_genre" name="genre" class="form-control me-2" placeholder="Book Genre" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" id="book_genre" name="book_genre" class="form-control me-2" placeholder="Book Genre" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Price</span>
-                    <input type="number" id="book_price" name="price" class="form-control" placeholder="Book Price" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="number" id="book_price" name="book_price" class="form-control" placeholder="Book Price" aria-label="Username" aria-describedby="basic-addon1">
                     <span class="input-group-text" id="basic-addon1">Qty</span>
-                    <input type="number" id="book_qty" name="quantity" class="form-control me-2" placeholder="Book Quantity" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="number" id="book_qty" name="book_quantity" class="form-control me-2" placeholder="Book Quantity" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Name</span>
-                    <input type="text" id="publisher_name" name="publisher_name" class="form-control" placeholder="Publisher Name" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" id="publisher_name" name="book_publisher" class="form-control" placeholder="Publisher Name" aria-label="Username" aria-describedby="basic-addon1">
                     <span class="input-group-text" id="basic-addon1">Name</span>
-                    <input type="text" id="author_name" name="author_name" class="form-control" placeholder="Author Name" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" id="author_name" name="book_author" class="form-control" placeholder="Author Name" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
                   <button type="submit" class="btn btn-primary" form="book_add_form">ADD</button>
                 </form>
@@ -214,7 +214,8 @@
       </div>
     </div>
 
-    <script src="./js/bootstrap.bundle.min.js"></script>
-    <script src="./js/main.js"></script>
+    <!-- <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script> -->
+    <script src="{{ url_for('static', filename='../static/js/bootstrap.bundle.min.js') }}"></script>
   </body>
 </html>

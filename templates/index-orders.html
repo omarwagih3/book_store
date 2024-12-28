@@ -55,16 +55,16 @@
                     <label for="selc-table">Entries</label>
                   </div>
                   <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">Date</span>
-                    <input type="date" id="order_date" name="Order Date" class="form-control me-2" placeholder="Order Date" aria-label="Username" aria-describedby="basic-addon1">
+                    <span class="input-group-text" id="basic-addon1">Customer Email</span>
+                    <input type="email" id="order_date" name="order_custmer_email" class="form-control me-2" placeholder="Order Date" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Amt</span>
-                    <input type="number" id="order_amount" name="Amount" class="form-control me-2" placeholder="Total Amount" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="number" id="order_amount" name="order_quantity" class="form-control me-2" placeholder="Total Amount" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
                   <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">CID</span>
-                    <input type="text" id="customer_id" name="Customer ID" class="form-control me-2" placeholder="Customer ID" aria-label="Username" aria-describedby="basic-addon1">
+                    <span class="input-group-text" id="basic-addon1">BID</span>
+                    <input type="text" id="customer_id" name="order_book_id" class="form-control me-2" placeholder="Customer ID" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
                   <button type="submit" class="btn btn-primary" form="orders_add_form">ADD</button>
                 </form>
@@ -197,7 +197,8 @@
       </div>
     </div>
 
-    <script src="./js/bootstrap.bundle.min.js"></script>
-    <script src="./js/main.js"></script>
+    <!-- <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script> -->
+    <script src="{{ url_for('static', filename='../static/js/bootstrap.bundle.min.js') }}"></script>
   </body>
 </html>

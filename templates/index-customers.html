@@ -56,15 +56,15 @@
                   </div>
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Name</span>
-                    <input type="text" id="customer_name" name="Customer Name" class="form-control me-2" placeholder="Customer Name" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" id="customer_name" name="customer_name" class="form-control me-2" placeholder="Customer Name" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Email@</span>
-                    <input type="email" id="customer_email" name="Customer Email" class="form-control me-2" placeholder="Customer Email" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="email" id="customer_email" name="customer_email" class="form-control me-2" placeholder="Customer Email" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Phone</span>
-                    <input type="tel" id="customer_phone" name="Phone Number" class="form-control me-2" placeholder="Customer Phone Number" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="tel" id="customer_phone" name="customer_phone" class="form-control me-2" placeholder="Customer Phone Number" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
                   <button type="submit" class="btn btn-primary" form="customer_add_form">ADD</button>
                 </form>
@@ -197,7 +197,8 @@
       </div>
     </div>
 
-    <script src="./js/bootstrap.bundle.min.js"></script>
-    <script src="./js/main.js"></script>
+    <!-- <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script> -->
+    <script src="{{ url_for('static', filename='../static/js/bootstrap.bundle.min.js') }}"></script>
   </body>
 </html>
