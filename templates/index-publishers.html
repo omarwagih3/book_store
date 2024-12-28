@@ -4,9 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Books</title>
-    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <!-- <link rel="stylesheet" href="./css/bootstrap.min.css" />
     <link rel="stylesheet" href="./css/all.min.css" />
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/style.css" /> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/style.css') }}">
   </head>
   <body>
     <nav class="navbar bg-body-secondary mb-4">
@@ -19,8 +22,8 @@
           <!-- <button class="btn btn-success me-5" type="button">
             <a class="" href="index-bks-author.html" target="">Books Author</a>
           </button> -->
-          <button class="btn btn-primary me-5" type="button"><a href="index-author.html">Authors</a></button>
-          <button class="btn btn-success me-5" type="button"><a href="index-publishers.html">Publishers</a></button>
+          <button class="btn btn-success me-5" type="button"><a href="index-author.html">Authors</a></button>
+          <button class="btn btn-primary me-5" type="button"><a href="index-publishers.html">Publishers</a></button>
           <button class="btn btn-success me-5" type="button"><a href="index-customers.html">Customers</a></button>
           <button class="btn btn-success me-5" type="button"><a href="index-orders.html">Orders</a></button>
           <button class="btn btn-success me-5" type="button">
@@ -30,13 +33,15 @@
       </div>
     </nav>
 
-    <div class="fs-5"><i class="fa-solid fa-user fa-2xl mx-2"></i
-      ><i class="fa-solid fa-pen fa-xl mx-2"></i>
-      <i class="fa-solid fa-pen fa-xl mx-2"></i></div>
+    <div class="fs-5">
+      <i class="fa-solid fa-copy fa-2xl mx-2"></i>
+      <i class="fa-regular fa-clipboard fa-2xl mx-2"></i>
+      <i class="fa-regular fa-copy fa-2xl mx-2"></i>
+    </div>
 
-      <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center">
 
-        <button type="button" class="btn btn-primary mx-4" data-bs-toggle="modal" data-bs-target="#addModal" data-bs-whatever="@mdo">Add</button>
+      <button type="button" class="btn btn-primary mx-4" data-bs-toggle="modal" data-bs-target="#addModal" data-bs-whatever="@mdo">Add</button>
         <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -45,19 +50,19 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <form id="author_add_form" action="/add_author" method="post">
+                <form id="publisher_add_form" action="/add_publisher" method="post">
                   <div class="mb-3">
                     <label for="selc-table">Entries</label>
                   </div>
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Name</span>
-                    <input type="text" id="author_name" name="Author Name" class="form-control me-2" placeholder="Author Name" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" id="publisher_name" name="Publisher Name" class="form-control me-2" placeholder="Publisher Name" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
                   <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">BIO</span>
-                    <input type="text" id="biography" name="Biography" class="form-control me-2" placeholder="Biography" aria-label="Username" aria-describedby="basic-addon1">
+                    <span class="input-group-text" id="basic-addon1">Cont</span>
+                    <input type="text" id="contact" name="Contact" class="form-control me-2" placeholder="Contact" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
-                  <button type="submit" class="btn btn-primary" form="author_add_form">ADD</button>
+                  <button type="submit" class="btn btn-primary" form="publisher_add_form">ADD</button>
                 </form>
               </div>
               <div class="modal-footer">
@@ -75,13 +80,13 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <form id="delete_form" action="/delete_author" method="post">
+                <form id="delete_form" action="/delete_publisher" method="post">
                   <div class="mb-3">
                     <label for="selc-table">Record To Be Deleted</label>
                   </div>
                   <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">ID</span>
-                    <input type="text" id="author_id" name="Author ID" class="form-control me-2" placeholder="Author ID" aria-label="Username" aria-describedby="basic-addon1">
+                    <span class="input-group-text" id="basic-addon1">PID</span>
+                    <input type="text" id="publisher_id" name="Publisher ID" class="form-control me-2" placeholder="Publisher ID" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
                   <button type="submit" class="btn btn-primary" form="delete_form">DELETE</button>
                 </form>
@@ -97,17 +102,17 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Search Author</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Search Publisher</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <form id="search_form" action="/search_author" method="get">
+                <form id="search_form" action="/search_publisher" method="post">
                   <div class="mb-3">
                     <label for="selc-table">Search By Name</label>
                   </div>
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Name</span>
-                    <input type="text" id="author_name"  name="Author Name" class="form-control me-2" placeholder="Author Name" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" id="publisher_name" name="Publisher Name" class="form-control me-2" placeholder="Publisher Name" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
                   <button type="submit" class="btn btn-primary" form="search_form">Search</button>
                 </form>
@@ -119,30 +124,29 @@
           </div>
         </div>
 
-      </div>
+    </div>
 
     <div id="home" class="grid_container">
       <div class="accordion" id="accordionPanelsStayOpenExample">
-        <div class="accordion-item">
+        <div class="accordion-item ">
           <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-              Authors
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="true" aria-controls="panelsStayOpen-collapseFour">
+              publishers
             </button>
           </h2>
-          <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+          <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse show">
             <div class="accordion-body">
               <table class="table table-responsive table-bordered table-hover table-dark">
                 <thead>
                   <tr>
-                    <!-- <th scope="col">Author</th> -->
-                    <th scope="col">Author ID</th>
+                    <!-- <th scope="col">Publisher</th> -->
+                    <th scope="col">PID</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Biography</th>
-                    
+                    <th scope="col">Contact</th>
                   </tr>
                 </thead>
-                <tbody id="authors_table">
-                  <!-- <div class="eample_table">
+                <tbody id="publishers_table">
+                  <!-- <div class="example_table">
                     <tr>
                       <th scope="row">1</th>
                       <td>Mark</td>
@@ -162,14 +166,14 @@
                       <td colspan="1">Larry the Bird</td>
                       <td>@twitter</td>
                       <td>@twitter</td>
-                      
+                     
                     </tr>
                   </div> -->
-                  {% for author in authors %}
+                  {% for publisher in publishers %}
                   <tr>
-                      <td>{{ author[0] }}</td>
-                      <td>{{ author[1] }}</td>
-                      <td>{{ author[2] }}</td>
+                      <td>{{ publisher[0] }}</td>
+                      <td>{{ publisher[1] }}</td>
+                      <td>{{ publisher[2] }}</td>
                   </tr>
                   {% endfor %}
                 </tbody>

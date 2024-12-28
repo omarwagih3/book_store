@@ -4,10 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Books</title>
-    <link rel="stylesheet" href="./css/bootstrap.min.css" />
-    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <!-- <link rel="stylesheet" href="./css/bootstrap.min.css" />
     <link rel="stylesheet" href="./css/all.min.css" />
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/style.css" /> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/style.css') }}">
   </head>
   <body>
     <nav class="navbar bg-body-secondary mb-4">
@@ -16,13 +18,13 @@
           >Book Store <i class="fa-solid fa-book fa-sm mx-2"></i
         ></a>
         <form class="" role="search">
-          <button class="btn btn-primary me-5" type="button"><a href="index-books.html">Books</a></button>
+          <button type="button" class="btn btn-success me-5" ><a href="index-books.html">Books</a></button>
           <!-- <button class="btn btn-success me-5" type="button">
             <a class="" href="index-bks-author.html" target="">Books Author</a>
           </button> -->
           <button class="btn btn-success me-5" type="button"><a href="index-author.html">Authors</a></button>
           <button class="btn btn-success me-5" type="button"><a href="index-publishers.html">Publishers</a></button>
-          <button class="btn btn-success me-5" type="button"><a href="index-customers.html">Customers</a></button>
+          <button class="btn btn-primary me-5" type="button"><a href="index-customers.html">Customers</a></button>
           <button class="btn btn-success me-5" type="button"><a href="index-orders.html">Orders</a></button>
           <button class="btn btn-success me-5" type="button">
             <a href="index-ordered-bks.html">Ordered Books</a>
@@ -30,10 +32,12 @@
         </form>
       </div>
     </nav>
-    <div class="fs-5"><i class="fa-solid fa-book fa-2xl mx-2"></i
-      ><i class="fa-solid fa-book fa-2xl mx-2"></i
-        ><i class="fa-solid fa-book fa-2xl mx-2"></i
-          ></div>
+
+    <div class="fs-5">
+      <i class="fa-solid fa-book-open-reader fa-2xl mx-2"></i>
+      <i class="fa-solid fa-book-open-reader fa-2xl mx-2"></i>
+      <i class="fa-solid fa-book-open-reader fa-2xl mx-2"></i>
+    </div>
 
     <div class="d-flex justify-content-center">
 
@@ -46,34 +50,27 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <form id="book_add_form" action="/add_book" method="post">
+                <form id="customer_add_form" action="/add_customer" method="post">
                   <div class="mb-3">
                     <label for="selc-table">Entries</label>
                   </div>
                   <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">Title</span>
-                    <input type="text" id="book_title" name="title" class="form-control" placeholder="Enter Book Title" aria-label="Username" aria-describedby="basic-addon1">
-                    <span class="input-group-text" id="basic-addon1">Genre</span>
-                    <input type="text" id="book_genre" name="genre" class="form-control me-2" placeholder="Book Genre" aria-label="Username" aria-describedby="basic-addon1">
+                    <span class="input-group-text" id="basic-addon1">Name</span>
+                    <input type="text" id="customer_name" name="Customer Name" class="form-control me-2" placeholder="Customer Name" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
                   <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">Price</span>
-                    <input type="number" id="book_price" name="price" class="form-control" placeholder="Book Price" aria-label="Username" aria-describedby="basic-addon1">
-                    <span class="input-group-text" id="basic-addon1">Qty</span>
-                    <input type="number" id="book_qty" name="quantity" class="form-control me-2" placeholder="Book Quantity" aria-label="Username" aria-describedby="basic-addon1">
+                    <span class="input-group-text" id="basic-addon1">Email@</span>
+                    <input type="email" id="customer_email" name="Customer Email" class="form-control me-2" placeholder="Customer Email" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
                   <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">Name</span>
-                    <input type="text" id="publisher_name" name="publisher_name" class="form-control" placeholder="Publisher Name" aria-label="Username" aria-describedby="basic-addon1">
-                    <span class="input-group-text" id="basic-addon1">Name</span>
-                    <input type="text" id="author_name" name="author_name" class="form-control" placeholder="Author Name" aria-label="Username" aria-describedby="basic-addon1">
+                    <span class="input-group-text" id="basic-addon1">Phone</span>
+                    <input type="tel" id="customer_phone" name="Phone Number" class="form-control me-2" placeholder="Customer Phone Number" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
-                  <button type="submit" class="btn btn-primary" form="book_add_form">ADD</button>
+                  <button type="submit" class="btn btn-primary" form="customer_add_form">ADD</button>
                 </form>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                
               </div>
             </div>
           </div>
@@ -87,13 +84,13 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <form id="delete_form" action="/delete_book" method="post">
+                <form id="delete_form" action="/delete_customer" method="post">
                   <div class="mb-3">
                     <label for="selc-table">Record To Be Deleted</label>
                   </div>
                   <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">ID</span>
-                    <input type="text" id="book_id" name="Book ID" class="form-control me-2" placeholder="Enter Book ID" aria-label="Username" aria-describedby="basic-addon1">
+                    <span class="input-group-text" id="basic-addon1">CID</span>
+                    <input type="text" id="customer_id" name="Customer ID" class="form-control me-2" placeholder="Customer ID" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
                   <button type="submit" class="btn btn-primary" form="delete_form">DELETE</button>
                 </form>
@@ -109,17 +106,17 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Search Book</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Search Customer</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <form id="search_form" action="/search_book" method="get">
+                <form id="search_form" action="/search_customer" method="get">
                   <div class="mb-3">
                     <label for="selc-table">Search By Name</label>
                   </div>
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Name</span>
-                    <input type="text" id="book_name" name="Book Name" class="form-control me-2" placeholder="Book Name" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" id="customer_name" name="Customer Name" class="form-control me-2" placeholder="Customer Name" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
                   <button type="submit" class="btn btn-primary" form="search_form">Search</button>
                 </form>
@@ -131,44 +128,40 @@
           </div>
         </div>
 
-      </div>
+    </div>
+
     <div id="home" class="grid_container">
-      
       <div class="accordion" id="accordionPanelsStayOpenExample">
         <div class="accordion-item ">
           <h2 class="accordion-header">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-              Books
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="true" aria-controls="panelsStayOpen-collapseFive">
+              Customers
             </button>
           </h2>
-          <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+          <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse show">
             <div class="accordion-body">
               <table class="table table-responsive table-bordered table-hover table-dark">
                 <thead>
                   <tr>
-                    <!-- <th scope="col">Book</th> -->
-                    <th scope="col">ID</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Genre</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Stock Quantity</th>
-                    <th scope="col">Publisher Name</th>
-                    <th scope="col">Author Name</th>
+                    <!-- <th scope="col">Customer</th> -->
+                    <th scope="col">CID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone</th>
+                    
                   </tr>
                   
                 </thead>
                 
-                <tbody id="books_table">
-                  <!-- <div class="example_table">
+                <tbody id="customers_table">
+                  <!-- <div class="eample_table">
                     <tr>
                       <th scope="row">1</th>
                       <td>Mark</td>
                       <td>Otto</td>
                       <td>@mdo</td>
                       <td>@mdo</td>
-                      <td>@mdo</td>
-                      <td>@mdo</td>
-                      <td>@mdo</td>
+                      
                     </tr>
                     <tr>
                       <th scope="row">2</th>
@@ -176,9 +169,7 @@
                       <td>Thornton</td>
                       <td>@fat</td>
                       <td>@fat</td>
-                      <td>@fat</td>
-                      <td>@fat</td>
-                      <td>@fat</td>
+                      
                     </tr>
                     <tr>
                       <th scope="row">3</th>
@@ -186,20 +177,15 @@
                       <td>@twitter</td>
                       <td>@twitter</td>
                       <td>@twitter</td>
-                      <td>@twitter</td>
-                      <td>@twitter</td>
-                      <td>@twitter</td>
+                      
                     </tr>
                   </div> -->
-                  {% for book in books %}
+                  {% for customer in customers %}
                   <tr>
-                      <td>{{ book[0] }}</td>
-                      <td>{{ book[1] }}</td>
-                      <td>{{ book[2] }}</td>
-                      <td>{{ book[3] }}</td>
-                      <td>{{ book[4] }}</td>
-                      <td>{{ book[5] }}</td>
-                      <td>{{ book[6] }}</td>
+                      <td>{{ customer[0] }}</td>
+                      <td>{{ customer[1] }}</td>
+                      <td>{{ customer[2] }}</td>
+                      <td>{{ customer[3] }}</td>
                   </tr>
                   {% endfor %}
                 </tbody>

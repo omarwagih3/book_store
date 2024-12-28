@@ -4,9 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Books</title>
-    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <!-- <link rel="stylesheet" href="./css/bootstrap.min.css" />
     <link rel="stylesheet" href="./css/all.min.css" />
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/style.css" /> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/style.css') }}">
   </head>
   <body>
     <nav class="navbar bg-body-secondary mb-4">
@@ -20,9 +23,9 @@
             <a class="" href="index-bks-author.html" target="">Books Author</a>
           </button> -->
           <button class="btn btn-success me-5" type="button"><a href="index-author.html">Authors</a></button>
-          <button class="btn btn-primary me-5" type="button"><a href="index-publishers.html">Publishers</a></button>
+          <button class="btn btn-success me-5" type="button"><a href="index-publishers.html">Publishers</a></button>
           <button class="btn btn-success me-5" type="button"><a href="index-customers.html">Customers</a></button>
-          <button class="btn btn-success me-5" type="button"><a href="index-orders.html">Orders</a></button>
+          <button class="btn btn-primary me-5" type="button"><a href="index-orders.html">Orders</a></button>
           <button class="btn btn-success me-5" type="button">
             <a href="index-ordered-bks.html">Ordered Books</a>
           </button>
@@ -31,9 +34,9 @@
     </nav>
 
     <div class="fs-5">
-      <i class="fa-solid fa-copy fa-2xl mx-2"></i>
-      <i class="fa-regular fa-clipboard fa-2xl mx-2"></i>
-      <i class="fa-regular fa-copy fa-2xl mx-2"></i>
+      <i class="fa-solid fa-cart-arrow-down fa-2xl mx-2"></i>
+      <i class="fa-solid fa-cart-arrow-down fa-2xl mx-2"></i>
+      <i class="fa-solid fa-cart-arrow-down fa-2xl mx-2"></i>
     </div>
 
     <div class="d-flex justify-content-center">
@@ -47,19 +50,23 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <form id="publisher_add_form" action="/add_publisher" method="post">
+                <form id="orders_add_form" action="/add_order" method="post">
                   <div class="mb-3">
                     <label for="selc-table">Entries</label>
                   </div>
                   <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">Name</span>
-                    <input type="text" id="publisher_name" name="Publisher Name" class="form-control me-2" placeholder="Publisher Name" aria-label="Username" aria-describedby="basic-addon1">
+                    <span class="input-group-text" id="basic-addon1">Date</span>
+                    <input type="date" id="order_date" name="Order Date" class="form-control me-2" placeholder="Order Date" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
                   <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">Cont</span>
-                    <input type="text" id="contact" name="Contact" class="form-control me-2" placeholder="Contact" aria-label="Username" aria-describedby="basic-addon1">
+                    <span class="input-group-text" id="basic-addon1">Amt</span>
+                    <input type="number" id="order_amount" name="Amount" class="form-control me-2" placeholder="Total Amount" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
-                  <button type="submit" class="btn btn-primary" form="publisher_add_form">ADD</button>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">CID</span>
+                    <input type="text" id="customer_id" name="Customer ID" class="form-control me-2" placeholder="Customer ID" aria-label="Username" aria-describedby="basic-addon1">
+                  </div>
+                  <button type="submit" class="btn btn-primary" form="orders_add_form">ADD</button>
                 </form>
               </div>
               <div class="modal-footer">
@@ -77,13 +84,13 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <form id="delete_form" action="/delete_publisher" method="post">
+                <form id="delete_form" action="/delete_order" method="post">
                   <div class="mb-3">
                     <label for="selc-table">Record To Be Deleted</label>
                   </div>
                   <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">PID</span>
-                    <input type="text" id="publisher_id" name="Publisher ID" class="form-control me-2" placeholder="Publisher ID" aria-label="Username" aria-describedby="basic-addon1">
+                    <span class="input-group-text" id="basic-addon1">ID</span>
+                    <input type="text" id="order_id" name="Order ID" class="form-control me-2" placeholder="Order ID" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
                   <button type="submit" class="btn btn-primary" form="delete_form">DELETE</button>
                 </form>
@@ -99,17 +106,17 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Search Publisher</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Search Order</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <form id="search_form" action="/search_publisher" method="post">
+                <form id="search_form" action="/search_order" method="get">
                   <div class="mb-3">
-                    <label for="selc-table">Search By Name</label>
+                    <label for="selc-table">Search By ID</label>
                   </div>
                   <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">Name</span>
-                    <input type="text" id="publisher_name" name="Publisher Name" class="form-control me-2" placeholder="Publisher Name" aria-label="Username" aria-describedby="basic-addon1">
+                    <span class="input-group-text" id="basic-addon1">ID</span>
+                    <input type="text" id="order_id" name="Order ID" class="form-control me-2" placeholder="Order ID" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
                   <button type="submit" class="btn btn-primary" form="search_form">Search</button>
                 </form>
@@ -127,27 +134,32 @@
       <div class="accordion" id="accordionPanelsStayOpenExample">
         <div class="accordion-item ">
           <h2 class="accordion-header">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="true" aria-controls="panelsStayOpen-collapseFour">
-              publishers
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSix" aria-expanded="true" aria-controls="panelsStayOpen-collapseSix">
+              Orders
             </button>
           </h2>
-          <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse show">
+          <div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse show">
             <div class="accordion-body">
               <table class="table table-responsive table-bordered table-hover table-dark">
                 <thead>
                   <tr>
-                    <!-- <th scope="col">Publisher</th> -->
-                    <th scope="col">PID</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Contact</th>
+                    <!-- <th scope="col">Order</th> -->
+                    <th scope="col">Order-ID</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Total Amount</th>
+                    <th scope="col">CID</th>
+                    
                   </tr>
+                  
                 </thead>
-                <tbody id="publishers_table">
-                  <!-- <div class="example_table">
+                
+                <tbody id="orders_table">
+                  <!-- <div class="examle_table">
                     <tr>
                       <th scope="row">1</th>
                       <td>Mark</td>
                       <td>Otto</td>
+                      <td>@mdo</td>
                       <td>@mdo</td>
                       
                     </tr>
@@ -156,6 +168,7 @@
                       <td>Jacob</td>
                       <td>Thornton</td>
                       <td>@fat</td>
+                      <td>@fat</td>
                       
                     </tr>
                     <tr>
@@ -163,14 +176,16 @@
                       <td colspan="1">Larry the Bird</td>
                       <td>@twitter</td>
                       <td>@twitter</td>
-                     
+                      <td>@twitter</td>
+                      
                     </tr>
                   </div> -->
-                  {% for publisher in publishers %}
+                  {% for order in orders %}
                   <tr>
-                      <td>{{ publisher[0] }}</td>
-                      <td>{{ publisher[1] }}</td>
-                      <td>{{ publisher[2] }}</td>
+                      <td>{{ order[0] }}</td>
+                      <td>{{ order[1] }}</td>
+                      <td>{{ order[2] }}</td>
+                      <td>{{ order[3] }}</td>
                   </tr>
                   {% endfor %}
                 </tbody>
