@@ -56,7 +56,7 @@
                   </div>
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Customer Email</span>
-                    <input type="email" id="order_date" name="order_custmer_email" class="form-control me-2" placeholder="Order Date" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="email" id="order_date" name="order_custmer_email" class="form-control me-2" placeholder="customer email" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Amt</span>
@@ -64,7 +64,7 @@
                   </div>
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">BID</span>
-                    <input type="text" id="customer_id" name="order_book_id" class="form-control me-2" placeholder="Customer ID" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" id="customer_id" name="order_book_id" class="form-control me-2" placeholder="Book ID" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
                   <button type="submit" class="btn btn-primary" form="orders_add_form">ADD</button>
                 </form>
@@ -75,7 +75,7 @@
             </div>
           </div>
         </div>
-      <button class="btn btn-danger mx-4" type="button" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-whatever="@mdo">Delete</button>
+<!--      <button class="btn btn-danger mx-4" type="button" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-whatever="@mdo">Delete</button>-->
         <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -83,18 +83,18 @@
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Record</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <div class="modal-body">
-                <form id="delete_form" action="/delete_order" method="post">
-                  <div class="mb-3">
-                    <label for="selc-table">Record To Be Deleted</label>
-                  </div>
-                  <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">ID</span>
-                    <input type="text" id="order_id" name="Order ID" class="form-control me-2" placeholder="Order ID" aria-label="Username" aria-describedby="basic-addon1">
-                  </div>
-                  <button type="submit" class="btn btn-primary" form="delete_form">DELETE</button>
-                </form>
-              </div>
+<!--              <div class="modal-body">-->
+<!--                <form id="delete_form" action="/delete_order" method="post">-->
+<!--                  <div class="mb-3">-->
+<!--                    <label for="selc-table">Record To Be Deleted</label>-->
+<!--                  </div>-->
+<!--                  <div class="input-group mb-3">-->
+<!--                    <span class="input-group-text" id="basic-addon1">ID</span>-->
+<!--                    <input type="text" id="order_id" name="Order ID" class="form-control me-2" placeholder="Order ID" aria-label="Username" aria-describedby="basic-addon1">-->
+<!--                  </div>-->
+<!--                  <button type="submit" class="btn btn-primary" form="delete_form">DELETE</button>-->
+<!--                </form>-->
+<!--              </div>-->
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
               </div>
@@ -116,7 +116,7 @@
                   </div>
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">ID</span>
-                    <input type="text" id="order_id" name="Order ID" class="form-control me-2" placeholder="Order ID" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" id="order_id" name="searchOrderName" class="form-control me-2" placeholder="Order ID" aria-label="Username" aria-describedby="basic-addon1">
                   </div>
                   <button type="submit" class="btn btn-primary" form="search_form">Search</button>
                 </form>
@@ -145,10 +145,10 @@
                   <tr>
                     <!-- <th scope="col">Order</th> -->
                     <th scope="col">Order-ID</th>
+                    <th scope="col">CID</th>
                     <th scope="col">Date</th>
                     <th scope="col">Total Amount</th>
-                    <th scope="col">CID</th>
-                    
+
                   </tr>
                   
                 </thead>
