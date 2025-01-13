@@ -54,13 +54,13 @@
                   </div>
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Name</span>
-                    <input type="text" id="author_name" name="author_name" class="form-control me-2" placeholder="Author Name" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" id="author_name" name="author_name" class="form-control me-2" placeholder="Author Name" aria-label="Username" aria-describedby="basic-addon1" required>
                   </div>
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">BIO</span>
-                    <input type="text" id="biography" name="biography" class="form-control me-2" placeholder="Biography" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" id="biography" name="biography" class="form-control me-2" placeholder="Biography" aria-label="Username" aria-describedby="basic-addon1" required>
                   </div>
-                  <button type="submit" class="btn btn-primary" form="author_add_form">ADD</button>
+                  <button onclick="recordAdded();" type="submit" class="btn btn-primary" form="author_add_form">ADD</button>
                 </form>
               </div>
               <div class="modal-footer">
@@ -84,7 +84,7 @@
                   </div>
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">ID</span>
-                    <input type="text" id="author_id" name="author_id" class="form-control me-2" placeholder="Author ID" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" id="author_id" name="author_id" class="form-control me-2" placeholder="Author ID" aria-label="Username" aria-describedby="basic-addon1" required>
                   </div>
                   <button type="submit" class="btn btn-primary" form="delete_form">DELETE</button>
                 </form>
@@ -110,7 +110,7 @@
                   </div>
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Name</span>
-                    <input type="text" id="author_name"  name="searchAutherName" class="form-control me-2" placeholder="Author Name" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" id="author_name"  name="searchAutherName" class="form-control me-2" placeholder="Author Name" aria-label="Username" aria-describedby="basic-addon1" required>
                   </div>
                   <button type="submit" class="btn btn-primary" form="search_form">Search</button>
                 </form>
@@ -133,7 +133,7 @@
             </button>
           </h2>
           
-          <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+          <div id="panelsStayOpen-collapseThree" class="accordion-collapse show">
             <div class="accordion-body">
               <table class="table table-responsive table-bordered table-hover table-dark">
                 <thead>
@@ -187,6 +187,7 @@
 
     <!-- <script src="../static/js/bootstrap.bundle.min.js"></script> -->
     <script src="{{ url_for('static', filename='../static/js/bootstrap.bundle.min.js') }}"></script>
+    <!-- <script src="{{ url_for('static', filename='../static/js/main.js') }}"></script> -->
     <!-- <script src="./js/main.js"></script> -->
   </body>
 </html>

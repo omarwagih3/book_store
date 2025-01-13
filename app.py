@@ -2,34 +2,14 @@ from flask import Flask, request, render_template
 import pyodbc
 
 
-
-# Retrieve the form data and insert it into the database
-# def add_product(cursor, conn, product_id, product_name, quantity, price):
-#     query =\
-#         f'''INSERT INTO Products (product_id, name, quantity, price) 
-#             VALUES ({product_id}, '{product_name}', {quantity}, {price})'''
-#     cursor.execute(query)
-#     conn.commit()
-
-# # Retrieve the search name and perform a search in the database
-# def search_product(cursor, keyword):
-#     query =\
-#         f'''SELECT * 
-#             FROM Products 
-#             WHERE name LIKE '%{keyword}%\''''
-#     cursor.execute(query)
-#     results = cursor.fetchall()
-#     return results
-
-
 app = Flask(__name__)
 
 # Establish a connection to the SQL Server
 DRIVER_NAME = ''
 SERVER_NAME = ''
 conn = pyodbc.connect('Driver={SQL Server};'
-                    'Server=serve_name;'
-                    'Database=data_base_name;'
+                    'Server=server_name;'
+                    'Database=dataBase_name;'
                     'Trusted_Connection=yes;')
 
 # Create a cursor object to execute SQL queries
@@ -71,7 +51,7 @@ def get_data(table_name):
     cursor.execute(f'''SELECT * FROM {table_name}''')
     rows = cursor.fetchall()
     return rows
-@app.route('/')
+@app.route('/index-home.html')
 def index():
     return render_template('index-home.html')
 
@@ -107,25 +87,6 @@ def index_publishers():
     return render_template('index-publishers.html',publishers=rows)
 
 
-
-# @app.route('/submit_newProduct', methods=['POST'])
-# def submit():
-#     if request.method == 'POST':
-#         product_id = request.form['productID']
-#         product_name = request.form['productName']
-#         quantity = request.form['quantity']
-#         price = request.form['price']
-
-#         add_product(cursor, conn, product_id, product_name, quantity, price)
-#         return render_template('index-home.html')
-    
-# @app.route('/submit_search', methods=['GET'])
-# def search():
-#     if request.method == 'GET':
-#         keyword = request.args.get('searchName')
-#         results = search_product(cursor, keyword)
-#         return render_template('results.html', search_results=results)
-
 @app.route('/add_author', methods=['POST'])
 def submit_author():
     if request.method == 'POST':  # method of send data
@@ -143,6 +104,7 @@ def submit_ordered():
         order_quantity = request.form['order_quantity']
         add_product_ordered(cursor, conn, order_custmer_email, order_book_id, order_quantity)
         rows = get_data('orders')
+        print(rows)
         return render_template('index-orders.html', orders=rows)
 
 

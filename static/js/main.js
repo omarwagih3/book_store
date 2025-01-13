@@ -1,3 +1,6 @@
+// function recordAdded() {
+//   alert("Record Added Successfully");
+// }
 // fetch(
 //   "https://dummyjson.com/books/?limit=10&skip=5&select=key1&select=key2&select=key3",
 //   {
