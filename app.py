@@ -51,6 +51,8 @@ def get_data(table_name):
     cursor.execute(f'''SELECT * FROM {table_name}''')
     rows = cursor.fetchall()
     return rows
+
+@app.route('/')
 @app.route('/index-home.html')
 def index():
     return render_template('index-home.html')
