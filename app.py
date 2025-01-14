@@ -5,11 +5,11 @@ import pyodbc
 app = Flask(__name__)
 
 # Establish a connection to the SQL Server
-DRIVER_NAME = ''
-SERVER_NAME = ''
+# DRIVER_NAME = ''
+# SERVER_NAME = ''
 conn = pyodbc.connect('Driver={SQL Server};'
                     'Server=server_name;'
-                    'Database=dataBase_name;'
+                    'Database=data_base_name;'
                     'Trusted_Connection=yes;')
 
 # Create a cursor object to execute SQL queries

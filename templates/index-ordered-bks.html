@@ -4,9 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Books</title>
-    <!-- <link rel="stylesheet" href="./css/bootstrap.min.css" />
-    <link rel="stylesheet" href="./css/all.min.css" />
-    <link rel="stylesheet" href="./css/style.css" /> -->
     <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/style.css') }}">
@@ -19,9 +16,6 @@
         ></a>
         <form class="" role="search">
           <button type="button" class="btn btn-success me-5" ><a href="index-books.html">Books</a></button>
-          <!-- <button class="btn btn-success me-5" type="button">
-            <a class="" href="index-bks-author.html" target="">Books Author</a>
-          </button> -->
           <button class="btn btn-success me-5" type="button"><a href="index-author.html">Authors</a></button>
           <button class="btn btn-success me-5" type="button"><a href="index-publishers.html">Publishers</a></button>
           <button class="btn btn-success me-5" type="button"><a href="index-customers.html">Customers</a></button>
@@ -36,89 +30,6 @@
       <i class="fa-solid fa-truck fa-2xl mx-2"></i>
       <i class="fa-solid fa-truck fa-2xl mx-2"></i>
     </div>
-
-    <!-- <div class="d-flex justify-content-center">
-
-      <button type="button" class="btn btn-primary mx-4" data-bs-toggle="modal" data-bs-target="#addModal" data-bs-whatever="@mdo">Add</button>
-        <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Add Record</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <form id="ordered_books_add_form" action="/add_order" method="post">
-                  <div class="mb-3">
-                    <label for="selc-table">Entries</label>
-                  </div>
-                  <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">Qnt</span>
-                    <input type="number" id="quantity" name="Quantity" class="form-control me-2" placeholder="Quantity" aria-label="Username" aria-describedby="basic-addon1">
-                  </div>
-                  <button type="submit" class="btn btn-primary" form="ordered_books_add_form">ADD</button>
-                </form>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      <button class="btn btn-danger mx-4" type="button" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-whatever="@mdo">Delete</button>
-        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Record</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <form id="delete_form" action="/delete_order" method="post">
-                  <div class="mb-3">
-                    <label for="selc-table">Record To Be Deleted</label>
-                  </div>
-                  <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">ID</span>
-                    <input type="text" id="order_id" name="Order ID" class="form-control me-2" placeholder="Order ID" aria-label="Username" aria-describedby="basic-addon1">
-                  </div>
-                  <button type="submit" class="btn btn-primary" form="delete_form">DELETE</button>
-                </form>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      <button class="btn btn-warning mx-4" type="button" data-bs-toggle="modal" data-bs-target="#searchModal" data-bs-whatever="@mdo">Search</button>
-        <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Search Order</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <form id="search_form" action="/search_order" method="get">
-                  <div class="mb-3">
-                    <label for="selc-table">Search By ID</label>
-                  </div>
-                  <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">ID</span>
-                    <input type="text" id="order_id" name="Order ID" class="form-control me-2" placeholder="Order ID" aria-label="Username" aria-describedby="basic-addon1">
-                  </div>
-                  <button type="submit" class="btn btn-primary" form="search_form">Search</button>
-                </form>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-    </div> -->
 
     <div id="home" class="grid_container">
       <div class="accordion" id="accordionPanelsStayOpenExample">
@@ -176,8 +87,6 @@
       </div>
     </div>
 
-    <!-- <script src="./js/bootstrap.bundle.min.js"></script>
-    <script src="./js/main.js"></script> -->
     <script src="{{ url_for('static', filename='../static/js/bootstrap.bundle.min.js') }}"></script>
   </body>
 </html>

@@ -4,9 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Books</title>
-    <!-- <link rel="stylesheet" href="./css/bootstrap.min.css" />
-    <link rel="stylesheet" href="./css/all.min.css" />
-    <link rel="stylesheet" href="./css/style.css" /> -->
     <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/style.css') }}">
@@ -19,9 +16,6 @@
         ></a>
         <form class="" role="search">
           <button type="button" class="btn btn-success me-5" ><a href="index-books.html">Books</a></button>
-          <!-- <button class="btn btn-success me-5" type="button">
-            <a class="" href="index-bks-author.html" target="">Books Author</a>
-          </button> -->
           <button class="btn btn-success me-5" type="button"><a href="index-author.html">Authors</a></button>
           <button class="btn btn-primary me-5" type="button"><a href="index-publishers.html">Publishers</a></button>
           <button class="btn btn-success me-5" type="button"><a href="index-customers.html">Customers</a></button>
@@ -185,8 +179,6 @@
       </div>
     </div>
 
-    <!-- <script src="./js/bootstrap.bundle.min.js"></script>
-    <script src="./js/main.js"></script> -->
     <script src="{{ url_for('static', filename='../static/js/bootstrap.bundle.min.js') }}"></script>
   </body>
 </html>
