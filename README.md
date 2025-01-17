@@ -1,6 +1,6 @@
-# Library Management System with Flask and SQL Server
+# Books Store Management System with Flask and SQL Server
 
-This project is a **Library Management System** built using Flask, SQL Server, and PyODBC. It provides a web-based interface for managing books, authors, customers, publishers, and orders in a library system.
+This project is a **Book Store Management System** built using Flask, SQL Server, and PyODBC. It provides a web-based interface for managing books, authors, customers, publishers, and orders in a library system.
 
 
 
