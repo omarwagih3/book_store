@@ -5,15 +5,27 @@ import pyodbc
 app = Flask(__name__)
 
 # Establish a connection to the SQL Server
-# DRIVER_NAME = ''
-# SERVER_NAME = ''
-conn = pyodbc.connect('Driver={SQL Server};'
+# driver_name = ''
+# server_name = ''
+# data_name = ''
+conn = pyodbc.connect('Driver={driver_name};'
                     'Server=server_name;'
-                    'Database=data_base_name;'
+                    'Database=data_name;'
                     'Trusted_Connection=yes;')
 
 # Create a cursor object to execute SQL queries
 cursor = conn.cursor()
+
+def get_best_sellers():
+    query = '''SELECT TOP(3) b.Title, a.Name, b.Stock_Quantity, ob.Quantity
+    FROM Books b
+    INNER JOIN Order_Books ob ON b.Book_ID = ob.Book_ID
+    INNER JOIN Book_Authors ba ON b.Book_ID = ba.Book_ID
+    INNER JOIN Authors a ON ba.Author_ID = a.Author_ID
+    ORDER BY ob.Quantity DESC'''
+    cursor.execute(query)
+    rows = cursor.fetchall()
+    return rows
 
 def add_product_ordered(cursor, conn, order_custmer_email, order_book_id, order_quantity):
     query = \
@@ -55,7 +67,8 @@ def get_data(table_name):
 @app.route('/')
 @app.route('/index-home.html')
 def index():
-    return render_template('index-home.html')
+    best_sellers = get_best_sellers()
+    return render_template('index-home.html', best_sellers=best_sellers)
 
 @app.route('/index-author.html')
 def index_author():

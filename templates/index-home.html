@@ -29,6 +29,9 @@
         ></a>
         <form class="" role="search">
           <button type="button" class="btn btn-success me-5">
+            <a href="#best_sellers">Best Sellers</a>
+          </button>
+          <button type="button" class="btn btn-success me-5">
             <a href="index-books.html">Books</a>
           </button>
           <button class="btn btn-success me-5" type="button">
@@ -86,6 +89,42 @@
             style="color: white"
           ></i>
         </div>
+      </div>
+    </div>
+    <br /><br />
+
+    <div id="best_sellers" class="container my-5">
+      <h2 class="text-center mb-5">
+        <i class="fa-solid fa-bookmark" style="color: rgb(239, 46, 46)"></i>
+        Best Sellers
+      </h2>
+      <div class="row">
+        {% for book in best_sellers %}
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-lg">
+            <div id="best_seller_card" class="card-body">
+              <h5 class="card-title text-center text-primary mb-3">
+                {{ book[0] }}
+              </h5>
+              <p class="card-text">
+                <strong
+                  ><i class="fa-solid fa-user"></i
+                  ><span> </span> Author: </strong
+                ><span class="text-success">{{ book[1] }}</span> <br />
+                <strong
+                  ><i class="fa-solid fa-cart-shopping"></i
+                  ><span> </span>Quantity Sold:</strong
+                >
+                <span class="text-info">{{ book[3] }}</span><br />
+                <strong
+                  ><i class="fa-solid fa-layer-group"></i><span> </span>Stock:
+                </strong>
+                <span class="text-danger">{{ book[2] }}</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
       </div>
     </div>
 

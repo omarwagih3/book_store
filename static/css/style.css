@@ -7,8 +7,18 @@
 h1 {
   width: 110%;
   cursor: pointer;
+
   font-size: 42px;
   color: rgb(217, 217, 217);
+}
+
+td {
+  cursor: pointer;
+}
+
+td::selection {
+  color: rgb(56, 163, 56);
+  background-color: rgb(0, 0, 0);
 }
 
 a {
@@ -24,6 +34,17 @@ body {
 .home-container {
   height: 600px;
   margin: 190px auto;
+}
+
+#best_seller_card {
+  /* background-color: rgb(183, 183, 183); */
+  border-radius: 5px;
+  box-shadow: 2px 3px 16px rgba(0, 0, 0, 0.61);
+  cursor: pointer;
+}
+
+.card {
+  cursor: pointer;
 }
 
 .grid_container {
