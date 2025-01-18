@@ -8,7 +8,7 @@ app = Flask(__name__)
 # driver_name = ''
 # server_name = ''
 # data_name = ''
-conn = pyodbc.connect('Driver={driver_name};'
+conn = pyodbc.connect('Driver={SQL Server};'
                     'Server=server_name;'
                     'Database=data_name;'
                     'Trusted_Connection=yes;')
@@ -17,12 +17,13 @@ conn = pyodbc.connect('Driver={driver_name};'
 cursor = conn.cursor()
 
 def get_best_sellers():
-    query = '''SELECT TOP(3) b.Title, a.Name, b.Stock_Quantity, ob.Quantity
+    query = '''SELECT TOP(3) b.Title, a.Name, b.Stock_Quantity, SUM(ob.Quantity) AS Total_Quantity
     FROM Books b
     INNER JOIN Order_Books ob ON b.Book_ID = ob.Book_ID
     INNER JOIN Book_Authors ba ON b.Book_ID = ba.Book_ID
     INNER JOIN Authors a ON ba.Author_ID = a.Author_ID
-    ORDER BY ob.Quantity DESC'''
+    GROUP BY b.Title, a.Name, b.Stock_Quantity
+    ORDER BY Total_Quantity DESC'''
     cursor.execute(query)
     rows = cursor.fetchall()
     return rows
